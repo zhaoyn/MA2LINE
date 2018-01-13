@@ -3,19 +3,17 @@ hist_stock_data.py accepts a list of ticker or one txt file contains tickers, on
 retrieves history stock data and save to a dataframe
 """
 
-import pandas as pd
-import  pandas_datareader as pdr
-import datetime
+# import pandas as pd
+import pandas_datareader as pdr
+from datetime import datetime
 
 
-def get(start,end,tickers):
-    pass
+def get(start,end,ticker):
+    _start=datetime.strptime(start,'%Y-%m-%d').date()
+    _end = datetime.strptime(end, '%Y-%m-%d').date()
+    stock=pdr.get_data_yahoo(ticker,_start,_end)
+    return stock
 
-start = datetime.datetime(2017,1,1)
-end=datetime.date.today()
-
-apple = pdr.get_data_yahoo("AAPL")
-
-type(apple)
-
-print(apple.head())
+if __name__ == '__main__':
+    aapl = get('2017-01-01','2018-01-01','AAPL')
+    print(aapl.head())
