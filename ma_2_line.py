@@ -23,8 +23,8 @@ def calculate_sma(stock, window_slow=30, window_fast=20):
     return stock
 
 if __name__ == '__main__':
-    from hist_stock_data import get
+    from hist_stock_data import get_stock
 
-    stock = get('2017-01-01', '2018-01-01', 'AAPL')
+    stock = get_stock('2017-01-01', '2018-01-01', 'AAPL')
     stock_sma = calculate_sma(stock, 20, 10)
     print(stock_sma.tail())
