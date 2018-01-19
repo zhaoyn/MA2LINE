@@ -31,7 +31,7 @@ for ticker in tickers:
     p = list(profit['cash_total'])[-1]
     profits.append(p)
     print(ticker + " completed.")
-    time.sleep(5)
+    # time.sleep(5)
 
 #print(profits)
 df = pd.DataFrame({'Ticker': tickers, 'Profit': profits})

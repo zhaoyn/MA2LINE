@@ -2,9 +2,11 @@ from datetime import date
 import numpy as np
 
 import pandas as pd
-import pandas_datareader as pdr
+# import pandas_datareader as pdr
 from datetime import datetime
 import matplotlib.pyplot as plt
+import quandl
+quandl.ApiConfig.api_key = 'XE5LrzNpF2MJxH7qcDbm'
 
 # now = datetime.today().date()
 # # now = datetime.strptime('2018-01-15','%Y-%m-%d').date()
@@ -33,7 +35,7 @@ class MovingAvg(object):
     def get_stock(self):
         _start = datetime.strptime(self.start_date, '%Y-%m-%d').date()
         _end = datetime.strptime(self.end_date, '%Y-%m-%d').date()
-        self.stock = pdr.get_data_yahoo(self.ticker, _start, _end)
+        self.stock = quandl.get('WIKI/'+self.ticker,start_date=_start,end_date=_end)
         return self.stock
 
     def get_sma(self):
