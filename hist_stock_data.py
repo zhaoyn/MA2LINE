@@ -10,7 +10,7 @@ import pandas as pd
 def get_stock(start,end,ticker):
     _start = datetime.strptime(start,'%Y-%m-%d').date()
     _end = datetime.strptime(end, '%Y-%m-%d').date()
-    stock = pdr.get_data_yahoo(ticker,_start,_end)
+    stock = pdr.get_data_googel(ticker,_start,_end)
     return stock
 
 if __name__ == '__main__':
